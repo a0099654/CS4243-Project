@@ -1,0 +1,242 @@
+Points that i need:
+
+1) The front building 
+a) The rooftop
+699 776 0
+769 746 0
+780 746 0
+838 778 0
+b) The building
+705 852 0
+706 783 0
+835 785 0
+836 856 0
+c) The staircase
+705 867 0
+705 857 0
+835 860 0
+835 872 0
+
+2) The first building on the right
+a) The rooftop
+840 784 100
+831 772 100
+864 774 100
+895 785 100
+b) Between rooftop and window
+836 810 100
+837 792 100
+887 792 100
+852 808 100
+c) Window
+840 850 100
+837 817 100
+858 815 100
+858 848 100
+
+3) The second building on the right
+a) The rooftop (part 1)
+850 810 50
+896 787 50
+938 788 50
+926 810 50
+b) The rooftop (part 2)
+926 810 50
+970 801 50
+938 788 50
+968 812 50
+c) The building (upper)
+852 854 50
+853 810 50
+970 815 50
+973 850 50
+d) The building (lower)
+901 869 50
+898 856 50
+989 857 50
+990 873 50
+
+4) The tower on top of the font building
+a) The front side
+746 733 100
+750 679 100
+798 680 100
+802 734 100
+b) The lower part of the tower(at the left)
+734 756 100
+734 736 100
+766 742 100
+761 750 100
+c) The lower part of the tower(at the right)
+779 748 100
+779 737 100
+814 741 100
+815 764 100
+d) The top side of the tower
+747 679 100
+749 667 100
+801 667 100
+798 680 100
+e) The upper most part of the tower(smaller portion)
+763 669 100
+760 657 100
+790 656 100
+789 672 100
+
+5) The building structure with shadow (divide it to several polygons)
+a) the side building
+968 845 25
+966 751 25
+983 748 25
+983 851 25
+b) The front building (part 1)
+987 847 0
+985 750 0
+1096 749 0
+1045 850 0
+c) The front building (part 2)
+1045 850 0
+1096 749 0
+1115 771 0
+1080 869 0
+d) The front building (part 3)
+1080 869 0
+1115 771 0
+1132 773 0
+1132 860 0
+
+6) The building at the sides of the one in shadow
+a) The rooftop (part 1)
+1051 745 100
+1092 710 100
+1155 694 50
+1134 722 50
+b) The rooftop (part 2)
+1134 722 50
+1155 694 50
+1173 702 -25
+1170 716 -25
+c) The rooftop and the window
+1047 749 100
+1040 742 100
+1174 717 -25
+1173 736 -25
+d) The window (upper part)
+1132 788 -10
+1104 755 0
+1176 749 -25
+1175 785 -25
+e)The window (lower part)
+1134 854 0
+1132 778 0
+1174 778 -25
+1171 860 -25
+
+7) The second building at the sides of the second in the shadow
+a) The rooftop
+1161 692 -30
+1259 648 -50
+1268 652 -60
+1231 673 -60
+b) Rooftop and window
+1174 780 -30
+1171 688 -30
+1233 675 -60
+1242 779 -60
+c) The building at the bottom and the window
+1178 867 -30
+1177 786 -30
+1242 784 -60
+1239 849 -60
+d) The remaining building and the bottom of the building\
+1178 874 -30
+1177 857 -30
+1208 859 -40
+1211 874 -40
+e) The rooftop facing the front
+1233 670 -60
+1261 649 -50
+1324 650 -45
+1331 673 -60
+f) The front side of the building (upper)
+1240 785 -60
+1239 679 -60
+1286 675 -60
+1285 784 -60
+g) The front side of the building (lower)
+1241 856 -60
+1239 790 -60
+1287 792 -60
+1303 849 -60
+
+8) The third building at the sides of the shadow building
+a) The window (without tree)
+1500 848 -100
+1489 564 -100
+1573 535 -150
+1500 848 -100
+b) The top part (without tree), 2nd version
+1503 721 -100
+1500 848 -100
+1500 848 -100
+1585 711 -150
+c) The rooftop of the top part
+1485 551 -100
+1512 524 -100
+1593 494 -150
+1556 523 -150
+c) The side part(rooftop)
+1566 522 -150
+1593 493 -150
+1630 490 -160
+1631 518 -160
+d) The side part(building)
+1585 715 -150
+1577 535 -150
+1631 536 -160
+1631 714 -160
+
+9) The tower
+a) Left side of tower
+864 773 100
+864 665 100
+879 664 100
+876 778 100
+b) The center of the tower(smaller part)
+880 781 80
+873 726 80
+915 728 80
+918 784 80
+c)The right side of the tower(smaller part)
+927 788 80
+923 753 80
+956 756 80
+957 793 80
+d)The center (facing front)
+882 720 90
+882 615 90
+922 614 90
+924 720 90
+e)The top part of the tower
+889 610 85
+892 554 85
+919 553 85
+915 605 85
+f)The right side of the center tower(shorter part)
+929 613 80
+926 574 80
+937 577 90
+933 613 90
+g)The right side of the center tower(longer part)
+929 750 80
+924 618 80
+938 623 90
+944 753 90
+
+
+
+
+
+
+
+

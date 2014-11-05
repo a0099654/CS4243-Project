@@ -44,6 +44,9 @@ cv2.namedWindow('image', cv2.WINDOW_NORMAL)
 cv2.resizeWindow("image", 600*width/height, 600);
 cv2.setMouseCallback('image',draw_circle)
 
+height =  img.shape
+print height
+
 while(1):
     cv2.imshow('image',img)
     k = cv2.waitKey(1) & 0xFF
