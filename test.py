@@ -3,6 +3,8 @@ import math
 import matplotlib.pyplot as plt
 import cv2
 import cv2.cv as cv
+import os
+import sys
 
 
 IMAGE_SIZE = (1632, 1224)
@@ -184,14 +186,14 @@ maskPoints = [(x[0], x[1]) for x in mask]
 planes = chunks(maskPoints, 4)
 img = cv2.imread('project.png',cv2.IMREAD_COLOR)
 
-for f in xrange(40,41):
-	pass
+for f in xrange(0,100):
 
 	canvas = persView(np.matrix([0, 30, -90 + f]).T, None)
-
+	
 	ks = [0,1,4,5,2,3,10,11,9,14,15,12,13,21,22,23,16,18,17,19,20,24,30,31,32,25,27,26,28,29,33,34,35,36,37,38,39,51,58,59,60,61,62,63,64,51,52,53,54,55,56,57,40,41,42,43,44,45,46,47,48,49,50,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90]
-
+	curr = 0
 	for k in ks:
+		total = len(ks)
 		c = np.float32([canvas[k]])
 		# print "c = " 
 		# print c
@@ -211,11 +213,16 @@ for f in xrange(40,41):
 		else:
 			dst = append(dst, cv2.warpPerspective(source,M,(400,400)))
 			# dst = cv2.warpPerspective(source,M,(400,400))
-		
+		curr = curr + 1
+		sys.stdout.write("\rprocessing frame " + str(f) + ": " + ("%.2f" % (100.0 * curr / total)) + '%')
+		sys.stdout.flush()
 
-	cv2.imshow("image", dst)
-	cv2.waitKey(0)
-	cv2.destroyAllWindows()
-	# print f
 	filename = 'results/frame_' + str(f) + '.jpg'
 	cv2.imwrite(filename, dst)
+
+
+	# cv2.imshow("image", dst)
+	# cv2.waitKey(0)
+	# cv2.destroyAllWindows()
+	# print f
+	
