@@ -173,12 +173,18 @@ def isZero(array):
 	return array[0] == 0 and array[1] == 0 and array[2] == 0
 
 def append(first, second):
-
 	for x in xrange(0,400):
 		for y in xrange(0,400):
 			if isZero(first[x][y]):
 				first[x][y] = second[x][y]
 	return first
+
+def append2(first, second):
+    grey = cv2.cvtColor(first, cv.CV_RGB2GRAY)
+    ret, mask = cv2.threshold(grey, 10, 255, cv2.THRESH_BINARY)
+    mask_inv = cv2.bitwise_not(mask)
+    result=cv2.add(second, first,first, mask=mask_inv)
+    return result
 
 dst = []
 
@@ -211,7 +217,7 @@ for f in xrange(0,100):
 		if (k == 0):
 			dst = cv2.warpPerspective(source,M,(400,400))
 		else:
-			dst = append(dst, cv2.warpPerspective(source,M,(400,400)))
+			dst = append2(dst, cv2.warpPerspective(source,M,(400,400)))
 			# dst = cv2.warpPerspective(source,M,(400,400))
 		curr = curr + 1
 		sys.stdout.write("\rprocessing frame " + str(f) + ": " + ("%.2f" % (100.0 * curr / total)) + '%')
