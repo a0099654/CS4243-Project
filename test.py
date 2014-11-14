@@ -142,9 +142,11 @@ def persView(quatmat, ax):
         sp = np.matrix(sp).T
         sp_tf_T = (sp - tf).T
         # print (F * sp_tf_T * i_f)
+        if sp_tf_T * k_f==0:
+            print "00000"
         u = ((F * sp_tf_T * i_f) * B_U / (sp_tf_T * k_f)) + U_0
         v = ((F * sp_tf_T * j_f) * B_V / (sp_tf_T * k_f)) + V_0
-        result.append((200 - u[0, 0] * 100, 200 - v[0, 0] * 100))
+        result.append((500 - u[0, 0] * 200, 500 - v[0, 0] * 200))
         if (ax is not None):
             ax.plot(u[0, 0], v[0, 0], 'b.')
     # 	#print sp
@@ -228,9 +230,9 @@ for pos in camera:
 
         M = cv2.getPerspectiveTransform(p, c)
         if (k == 0):
-            dst = cv2.warpPerspective(source, M, (400, 400))
+            dst = cv2.warpPerspective(source, M, (1000, 1000))
         else:
-            dst = append2(dst, cv2.warpPerspective(source, M, (400, 400)))
+            dst = append2(dst, cv2.warpPerspective(source, M, (1000, 1000)))
         # dst = cv2.warpPerspective(source,M,(400,400))
         curr = curr + 1
         sys.stdout.write("\rprocessing frame " + str(f) + ": " + ("%.2f" % (100.0 * curr / total)) + '%')
