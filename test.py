@@ -22,43 +22,6 @@ def read_file_camera():
     mask = [[float(x) for x in data.strip().split()[1:3]] for data in open('cameraposition.txt')]
     return points, mask
 
-# def build_model(data):
-
-# ratio_x = float(1154 - 978) / float(100)
-# 	ratio_y = float(888 - 874) / float(100)
-
-# 	def normalize_data(data):
-# 		result = []
-# 		for i in xrange(0,len(data)):
-# 			# make the (0, 0) to be the vanishing point
-# 			x = float(data[i][0]) - V_POINT[0]
-# 			y = float(data[i][1]) - V_POINT[1]
-# 			z = float(data[i][2])
-# 			# rescale based on z
-# 			print (x, y, z)
-# 			if (x < 0):
-# 				x = x - z * ratio_x * abs(x) / V_POINT[0]
-# 			else:
-# 				x = x + z * ratio_x * (x / (IMAGE_SIZE[0] - V_POINT[0]))
-
-# 			if (y < 0):
-# 				print y
-# 				y = y - z * ratio_y * abs(y) / V_POINT[1]
-# 				print y
-# 			else:
-# 				y = y + z * ratio_y * (y / (IMAGE_SIZE[1] - V_POINT[1]))
-
-# 			print (x, -y, z)
-# 			result.append([x, -y, z])
-# 			# x_list = [d[0] for d in data]
-# 			# z_list = [d[2] for d in data]
-# 		return result
-
-
-# 	return normalize_data(data)
-
-# data = build_model(read_file())
-
 def chunks(l, n):
     if n < 1:
         n = 1
@@ -146,7 +109,7 @@ def persView(quatmat, ax):
             print "00000"
         u = ((F * sp_tf_T * i_f) * B_U / (sp_tf_T * k_f)) + U_0
         v = ((F * sp_tf_T * j_f) * B_V / (sp_tf_T * k_f)) + V_0
-        result.append((500 - u[0, 0] * 200, 500 - v[0, 0] * 200))
+        result.append((640 - u[0, 0] * 1250, 350 - v[0, 0] * 1250))
         if (ax is not None):
             ax.plot(u[0, 0], v[0, 0], 'b.')
     # 	#print sp
@@ -200,7 +163,7 @@ dst = []
 
 maskPoints = [(x[0], x[1]) for x in mask]
 planes = chunks(maskPoints, 4)
-img = cv2.imread('project.png', cv2.IMREAD_COLOR)
+img = cv2.imread('project.png')
 camera,maskcam=read_file_camera()
 f=1
 
@@ -208,10 +171,7 @@ for pos in camera:
 
     canvas = persView(np.matrix([pos[0], pos[1], pos[2]]).T, None)
 
-    ks = [0, 1, 4, 5, 2, 3, 10, 11, 9, 14, 15, 12, 13, 21, 22, 23, 16, 18, 17, 19, 20, 24, 30, 31, 32, 25, 27, 26, 28,
-          29, 33, 34, 35, 36, 37, 38, 39, 51, 58, 59, 60, 61, 62, 63, 64, 51, 52, 53, 54, 55, 56, 57, 40, 41, 42, 43,
-          44, 45, 46, 47, 48, 49, 50, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84,
-          85, 86, 87, 88, 89, 90, 91, 92]
+    ks = [0,1,4,5,2,3,93,94,34,35,36,37,38,39,21,22,23,16,18,17,19,95,20,24,30,31,32,25,27,26,28,29,33,10,11,9,14,15,12,13,58,59,60,61,62,63,64,51,52,53,54,55,56,57,40,41,42,43,44,45,46,47,48,49,50,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92]
     curr = 0
     for k in ks:
         total = len(ks)
@@ -230,9 +190,9 @@ for pos in camera:
 
         M = cv2.getPerspectiveTransform(p, c)
         if (k == 0):
-            dst = cv2.warpPerspective(source, M, (1000, 1000))
+            dst = cv2.warpPerspective(source, M, (1280, 800))
         else:
-            dst = append2(dst, cv2.warpPerspective(source, M, (1000, 1000)))
+            dst = append2(dst, cv2.warpPerspective(source, M, (1280, 800)))
         # dst = cv2.warpPerspective(source,M,(400,400))
         curr = curr + 1
         sys.stdout.write("\rprocessing frame " + str(f) + ": " + ("%.2f" % (100.0 * curr / total)) + '%')
